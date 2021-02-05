@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1><% content_for :page_title, "Home"%></h1>
+
+    <% @posts.each do |post| %>
+    <div class="card mb-3" style="width: 40rem"  >
+      <h5 class="card-header" style="color: green"><%= post.title%></h5>
+      <div class="card-body">
+      <p class="card-text"><%= post.body %></p>
+      <small><%= time_ago_in_words(post.created_at) %> ago </small>
+      <% if user_signed_in? %>
+      <span class="font-weight-bold">
+      <small >by <%= post.user.try(:email) %></small>
+      </span>
+      <% else %>
+      <small>Anonymous</small>
+      <% end %>
+    </div>
+    </div>
+    <% end %>
+
+<% if user_signed_in? %>
+<%= link_to 'Create New Post', new_post_path, class: "btn btn-danger", style:"color: white; margin-left:35rem; margin-top:10rem" %>
+<% else %>
+<% end %>
+<% if !user_signed_in? %>
+<%= link_to "Please Log In", user_session_path, class: "btn btn-danger ", style:'color:white;  margin-left:35rem; margin-top: 10rem' %>
+  
+<% end %>
+
+<br>
+
