@@ -18,14 +18,15 @@
     </head>
     <body>
         <nav class="navbar navbar-light navbar-expand-lg bg-light justify-content-between">
-            <a class="navbar-brand" href="#"><%= yield :page_title %></a>
+            <a class="navbar-brand" href="#" ><%= yield :page_title %></a>
+            <h4 class="font-weight-bold" style="font-size: 30px; background: -webkit-linear-gradient(#eee, #333); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Members Only</h4>
             <span class="nav-item">
                 <ul class="navbar-nav mr-5">
                     <% if user_signed_in? %>
-                        <li class="nav-item active"><%= link_to "Log Out",destroy_user_session_path, method: :delete %></li>
+                        <li class="nav-item active"><%= link_to "Log Out",destroy_user_session_path, method: :delete, class: "btn btn-secondary", style: "color:white" %></li>
                     <% else %>
-                        <li class="nav-item active"><%= link_to "Sign up ", new_user_registration_path, class: "m-4" %></li>
-                        <li class="nav-item active"><%= link_to "Sign in", user_session_path, class: "m-5" %></li>
+                        <li class="nav-item active mr-5"><%= link_to "Sign up ", new_user_registration_path, class: "btn btn-danger ", style: "color:white; margin-right: 1rem" %></li>
+                        <li class="nav-item active"><%= link_to "Sign in", user_session_path, class: "btn btn-success  ml-4", style: "color:white" %></li>
                         <%end %>
                     </ul>
                 </span>
