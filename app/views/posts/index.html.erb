@@ -4,7 +4,13 @@
 
     <% @posts.each do |post| %>
       <h1><%= post.title%></h1>
-      <%= post.body%>
+      <p><%= post.body %></p>
+      <small><%= time_ago_in_words(post.created_at) %> ago </small>
+      <% if user_signed_in? %>
+      <small>by <%= post.user.try(:email) %></small>
+      <% else %>
+      <small>Anonymous</small>
+      <% end %>
     <% end %>
 
 
