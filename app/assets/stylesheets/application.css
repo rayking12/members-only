@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- body {
-     list-style: none;
-     text-decoration: none;
- }
+body {
+    list-style: none;
+    text-decoration: none;
+}
