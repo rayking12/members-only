@@ -19,7 +19,14 @@
     </div>
     <% end %>
 
+<% if user_signed_in? %>
+<%= link_to 'Create New Post', new_post_path, class: "btn btn-danger", style:"color: white; margin-left:35rem; margin-top:10rem" %>
+<% else %>
+<% end %>
+<% if !user_signed_in? %>
+<%= link_to "Please Log In", user_session_path, class: "btn btn-danger ", style:'color:white;  margin-left:35rem; margin-top: 10rem' %>
+  
+<% end %>
 
 <br>
 
-<%= link_to 'New Post', new_post_path %>
